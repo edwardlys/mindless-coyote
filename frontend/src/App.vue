@@ -6,10 +6,9 @@ import { RouterLink, RouterView } from "vue-router";
   <div class="wrapper">
     <nav>
       <RouterLink :to="{ name: 'home' }">Home</RouterLink>
-      <RouterLink :to="{ name: 'map' }">Map</RouterLink>
-      <RouterLink :to="{ name: 'gps' }">Gps</RouterLink>
+      <RouterLink :to="{ name: 'diff' }">Diff</RouterLink>
     </nav>
+    
+    <RouterView />
   </div>
-
-  <RouterView />
 </template>

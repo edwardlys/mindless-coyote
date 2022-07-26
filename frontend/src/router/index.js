@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import MapView from "../views/MapView.vue";
-import GpsView from "../views/GpsView.vue";
+import DiffView from "../views/DiffView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,14 +11,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/map",
-      name: "map",
-      component: MapView,
-    },
-    {
-      path: "/gps",
-      name: "gps",
-      component: GpsView,
+      path: "/diff",
+      name: "diff",
+      component: DiffView,
     },
   ],
 });
