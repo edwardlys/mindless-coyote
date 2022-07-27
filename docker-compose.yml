@@ -10,15 +10,17 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
-      - ./backend:/var/www
+      - ./backend:/var/www/backend
 
   nginx:
     image: nginx:alpine
     restart: unless-stopped
     ports:
-      - 8000:80
+      - 8020:8020
+      - 80:80
     volumes:
-      - ./backend:/var/www
+      - ./backend:/var/www/backend
+      - ./frontend/dist:/var/www/frontend
       - ./docker/nginx:/etc/nginx/conf.d/
 
   db:
