@@ -8,8 +8,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^4.0.7",
+    "axios": "^0.27.2",
     "diff2html-cli": "^5.2.5",
     "pinia": "^2.0.16",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
+    "tinymce": "^6.1.1",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },
