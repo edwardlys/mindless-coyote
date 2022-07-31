@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div>
@@ -35,10 +34,10 @@ nav {
   from {
     background-color: white;
     color: black;
-    }
+  }
   to {
     background-color: black;
     color: white;
-    }
+  }
 }
 </style>

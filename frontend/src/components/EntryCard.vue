@@ -1,7 +1,7 @@
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 const props = defineProps({
   title: String,
@@ -11,8 +11,8 @@ const props = defineProps({
 });
 
 const goToEntry = () => {
-  router.push({ name: 'EntriesView', params: { slug: props.slug } });
-}
+  router.push({ name: "EntriesView", params: { slug: props.slug } });
+};
 </script>
 
 <template>
@@ -58,33 +58,33 @@ const goToEntry = () => {
   from {
     background-color: white;
     color: black;
-    }
+  }
   to {
     background-color: black;
     color: white;
-    }
+  }
 }
 
 @keyframes blink {
-  0%   {
+  0% {
     background-color: white;
     color: black;
-    }
-  20%  {
+  }
+  20% {
     background-color: black;
     color: white;
-    }
-  40%  {
+  }
+  40% {
     background-color: white;
     color: black;
-    }
-  60%  {
+  }
+  60% {
     background-color: black;
     color: white;
-    }
+  }
   100% {
     background-color: white;
     color: black;
-    }
+  }
 }
 </style>

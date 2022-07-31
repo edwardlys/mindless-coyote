@@ -1,27 +1,26 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import EntryCard from '../../components/EntryCard.vue';
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from "vue";
+import axios from "axios";
+import EntryCard from "../../components/EntryCard.vue";
+import { useRouter } from "vue-router";
 
 let entries = ref([]);
 
 onMounted(() => {
   // Getting a list of entries.
-  axios.get('http://localhost:8020/api/entries').then((response) => {
-    if (response.data.code == 'ENTRY_RETRIEVED') {
+  axios.get("http://localhost:8020/api/entries").then((response) => {
+    if (response.data.code == "ENTRY_RETRIEVED") {
       entries.value = response.data.data.entries;
     } else {
-      alert('Error retrieving entries');
+      alert("Error retrieving entries");
     }
   });
-})
+});
 
-const router = useRouter()
+const router = useRouter();
 
 const goToCreateEntryPage = () => {
-  router.push({ name: 'EntriesCreate'});
-
+  router.push({ name: "EntriesCreate" });
 };
 </script>
 
@@ -30,8 +29,8 @@ const goToCreateEntryPage = () => {
     <button @click="goToCreateEntryPage">Create</button>
 
     <div v-for="(entry, index) in entries" :key="index">
-      <EntryCard 
-        :title="entry.title" 
+      <EntryCard
+        :title="entry.title"
         :content="entry.content"
         :date="entry.created_at"
         :slug="entry.slug"
