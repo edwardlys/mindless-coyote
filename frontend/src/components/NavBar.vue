@@ -4,6 +4,8 @@
   <div>
     <nav>
       <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
+      <RouterLink :to="{ name: 'Login' }">Login</RouterLink>
+      <RouterLink :to="{ name: 'SignUp' }">Sign-up</RouterLink>
       <RouterLink :to="{ name: 'Diff' }">Diff</RouterLink>
       <RouterLink :to="{ name: 'Entries' }">Entries</RouterLink>
     </nav>
@@ -17,6 +19,7 @@ nav {
     border: 1px solid;
     text-decoration: none;
     font-size: 1.5rem;
+    color: black;
   }
 
   a:visited {
@@ -25,17 +28,6 @@ nav {
 
   a:hover {
     animation: fadeHightlight 0.5s;
-    background-color: black;
-    color: white;
-  }
-}
-
-@keyframes fadeHightlight {
-  from {
-    background-color: white;
-    color: black;
-  }
-  to {
     background-color: black;
     color: white;
   }

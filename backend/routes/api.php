@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DifferController;
 use App\Http\Controllers\Api\EntriesController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,20 @@ use App\Http\Controllers\Api\EntriesController;
 |
 */
 
+Route::controller(AuthController::class)->group(function(){
+    Route::post('register', 'register');
+    Route::post('login', 'login');
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/differ', [DifferController::class, 'generateDiff']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/differ', [DifferController::class, 'generateDiff']);
+});
+
 
 Route::get('/entries', [EntriesController::class, 'index']);
 Route::get('/entries/{slug}', [EntriesController::class, 'view']);
