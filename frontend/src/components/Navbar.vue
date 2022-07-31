@@ -4,8 +4,9 @@
 <template>
   <div>
     <nav>
-      <RouterLink :to="{ name: 'home' }" @click="clickedLink">Home</RouterLink>
-      <RouterLink :to="{ name: 'diff' }" @click="clickedLink">Diff</RouterLink>
+      <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
+      <RouterLink :to="{ name: 'Diff' }">Diff</RouterLink>
+      <RouterLink :to="{ name: 'Entries' }">Entries</RouterLink>
     </nav>
   </div>
 </template>
@@ -28,10 +29,6 @@ nav {
     background-color: black;
     color: white;
   }
-
-  a.router-link-active {
-    animation: blink 2s;
-  }
 }
 
 @keyframes fadeHightlight {
@@ -42,29 +39,6 @@ nav {
   to {
     background-color: black;
     color: white;
-    }
-}
-
-@keyframes blink {
-  0%   {
-    background-color: white;
-    color: black;
-    }
-  20%  {
-    background-color: black;
-    color: white;
-    }
-  40%  {
-    background-color: white;
-    color: black;
-    }
-  60%  {
-    background-color: black;
-    color: white;
-    }
-  100% {
-    background-color: white;
-    color: black;
     }
 }
 </style>

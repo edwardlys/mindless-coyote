@@ -1,19 +1,38 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import DiffView from "../views/DiffView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      name: "Home",
+      component: () => import('../views/HomeView.vue'),
+    },
+    {
+      path: "/entries",
+      name: "Entries",
+      component: () => import('../views/Entries/Index.vue'),
+    },
+    {
+      path: "/entries/:slug",
+      name: "EntriesView",
+      component: () => import('../views/Entries/View.vue'),
+      props: true,
+    },
+    {
+      path: "/entries/create",
+      name: "EntriesCreate",
+      component: () => import('../views/Entries/Form.vue'),
+    },
+    {
+      path: "/entries/:slug/update",
+      name: "EntriesUpdate",
+      component: () => import('../views/Entries/Form.vue'),
     },
     {
       path: "/diff",
-      name: "diff",
-      component: DiffView,
+      name: "Diff",
+      component: () => import('../views/DiffView.vue'),
     },
   ],
 });
