@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
-import EntryCard from "../../components/EntryCard.vue";
 
 const props = defineProps({
   slug: String,

@@ -11,23 +11,23 @@ const router = createRouter({
     {
       path: "/entries",
       name: "Entries",
-      component: () => import("../views/Entries/Index.vue"),
+      component: () => import("../views/Entries/EntryIndex.vue"),
     },
     {
       path: "/entries/:slug",
       name: "EntriesView",
-      component: () => import("../views/Entries/View.vue"),
+      component: () => import("../views/Entries/EntryView.vue"),
       props: true,
     },
     {
       path: "/entries/create",
       name: "EntriesCreate",
-      component: () => import("../views/Entries/Form.vue"),
+      component: () => import("../views/Entries/EntryForm.vue"),
     },
     {
       path: "/entries/:slug/update",
       name: "EntriesUpdate",
-      component: () => import("../views/Entries/Form.vue"),
+      component: () => import("../views/Entries/EntryForm.vue"),
     },
     {
       path: "/diff",

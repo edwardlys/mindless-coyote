@@ -26,9 +26,7 @@ const enabledEditorPlugins = ref([
   "quickbars",
 ]);
 
-let diffs = ref(`
-diff --git a\/1f3870be274f6c49b3e31a0c6728957f b\/ba3f3b5cd68e08524f8f710c4e2d18f8\n@@ -1 +1 @@\n-apple\n\\ No newline at end of file\n+apple 123\n\\ No newline at end of file\n
-`);
+let diffs = ref('');
 
 const prettyHtml = computed(() => {
   return Diff2Html.html(diffs.value, {

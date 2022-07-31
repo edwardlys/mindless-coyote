@@ -1,11 +1,11 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import TinyMce from "@tinymce/tinymce-vue";
 import axios from "axios";
 
 const BACKEND_API_BASE_URL = import.meta.env.VITE_BACKEND_API_BASE_URL;
 
-const props = defineProps({
+defineProps({
   slug: String,
 });
 
