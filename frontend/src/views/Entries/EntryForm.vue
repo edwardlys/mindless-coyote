@@ -3,7 +3,7 @@ import { ref } from "vue";
 import TinyMce from "@tinymce/tinymce-vue";
 import axios from "axios";
 
-const BACKEND_API_BASE_URL = import.meta.env.VITE_BACKEND_API_BASE_URL;
+const BACKEND_API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 defineProps({
   slug: String,
@@ -36,7 +36,7 @@ const enabledEditorPlugins = ref([
 
 const submitEntry = () => {
   axios
-    .post(`${BACKEND_API_BASE_URL}/entries`, {
+    .post(`${BACKEND_API_BASE_URL}/api/entries`, {
       content: content.value,
       title: title.value,
     })

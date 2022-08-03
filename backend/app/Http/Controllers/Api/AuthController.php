@@ -12,8 +12,12 @@ class AuthController extends Controller
 {
     const RESPONSE_REGISTER_VALIDATION_ERR = 'REGISTER_VALIDATION_ERR';
     const RESPONSE_REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+    
     const RESPONSE_LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-    const RESPONSE_LOGIN_FAILED = 'LOGIN_FAILED';
+    const RESPONSE_LOGIN_FAILED_NO_MATCH = 'LOGIN_FAILED_NO_MATCH';
+    const RESPONSE_LOGIN_FAILED_MALFORMED = 'LOGIN_FAILED_MALFORMED';
+
+    const RESPONSE_LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
     /**
      * Register api
@@ -51,12 +55,23 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
-            $user = Auth::user(); 
+        $input = $request->only('email', 'password');
 
+        if (empty($input['email']) || empty($input['password'])) {
+            return $this->respondWith([], self::RESPONSE_LOGIN_FAILED_MALFORMED);
+        }
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
             return $this->respondWith([], self::RESPONSE_LOGIN_SUCCESS);
         } else { 
-            return $this->respondWith([], self::RESPONSE_LOGIN_FAILED);
+            return $this->respondWith([], self::RESPONSE_LOGIN_FAILED_NO_MATCH);
         } 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return $this->respondWith([], self::RESPONSE_LOGOUT_SUCCESS);
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DifferController;
 use App\Http\Controllers\Api\EntriesController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\Api\AuthController;
 Route::controller(AuthController::class)->group(function(){
     Route::post('register', 'register');
     Route::post('login', 'login');
+    Route::post('logout', 'logout');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -28,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [UserController::class, 'fetch']);
     Route::post('/differ', [DifferController::class, 'generateDiff']);
 });
 
