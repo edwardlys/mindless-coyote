@@ -1,7 +1,40 @@
+$fontSizeNormal: 16px;
+
 #app {
     font-family: 'Fira Code';
+
+    input {
+        font-family: 'Fira Code';
+        font-size: $fontSizeNormal;
+    }
+    
+    button {
+        font-family: 'Fira Code';
+        font-size: $fontSizeNormal;
+        background-color: white;
+        border: solid 1px black; 
+        color: black;
+    }
+    
+    button:hover {
+        animation: fadeHightlight 0.5s;
+        background-color: black;
+        color: white;
+    }
+    
+    .center {
+        text-align: center;
+    }
 }
 
-.center {
-    text-align: center;
+// Animations
+@keyframes fadeHightlight {
+    from {
+      background-color: white;
+      color: black;
+    }
+    to {
+      background-color: black;
+      color: white;
+    }
 }

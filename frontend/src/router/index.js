@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useAuthStore } from "../stores/auth";
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,6 +11,20 @@ const router = createRouter({
       name: "Home",
       component: () => import("../views/HomeView.vue"),
     },
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import("../views/LoginView.vue"),
+      beforeEnter: (to, from) => {
+        const authStore = useAuthStore();
+        return !authStore.isLoggedIn;
+      },
+    },
+    // {
+    //   path: "/sign-up",
+    //   name: "SignUp",
+    //   component: () => import("../views/SignUpView.vue"),
+    // },
     {
       path: "/entries",
       name: "Entries",
@@ -29,11 +46,11 @@ const router = createRouter({
       name: "EntriesUpdate",
       component: () => import("../views/Entries/EntryForm.vue"),
     },
-    {
-      path: "/diff",
-      name: "Diff",
-      component: () => import("../views/DiffView.vue"),
-    },
+    // {
+    //   path: "/diff",
+    //   name: "Diff",
+    //   component: () => import("../views/DiffView.vue"),
+    // },
   ],
 });
 

@@ -26,7 +26,7 @@ const enabledEditorPlugins = ref([
   "quickbars",
 ]);
 
-let diffs = ref('');
+let diffs = ref("");
 
 const prettyHtml = computed(() => {
   return Diff2Html.html(diffs.value, {
