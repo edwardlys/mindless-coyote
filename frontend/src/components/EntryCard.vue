@@ -1,22 +1,14 @@
 <script setup>
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-
 const props = defineProps({
   title: String,
   content: String,
   date: String,
   slug: String,
 });
-
-const goToEntry = () => {
-  router.push({ name: "EntriesView", params: { slug: props.slug } });
-};
 </script>
 
 <template>
-  <div class="card" @click="goToEntry">
+  <div class="card">
     <div class="card-header">
       <h2 class="title">{{ title }}</h2>
       <small class="date">{{ date }}</small>

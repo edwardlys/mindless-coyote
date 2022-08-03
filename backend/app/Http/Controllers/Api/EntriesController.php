@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Controller;
 use App\Models\Eloquent\Entry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class EntriesController extends Controller
 {
@@ -17,7 +18,7 @@ class EntriesController extends Controller
 
     public function index()
     {
-        $entries = Entry::all();
+        $entries = Entry::where('published', true)->get();
         
         return $this->respondWith(
             [
@@ -49,6 +50,7 @@ class EntriesController extends Controller
             'title' => $params['title'],
             'content' => $params['content'],
             'slug' => Str::slug($params['title']),
+            'published' => true,
         ]);
 
         return $this->respondWith(
@@ -75,10 +77,13 @@ class EntriesController extends Controller
             );
         }
 
+        Entry::where('slug', $slug)->update(['published' => false]);
+
         $newEntry = Entry::create([
             'title' => $params['title'],
             'content' => $params['content'],
             'slug' => $slug,
+            'published' => true,
         ]);
 
         return $this->respondWith(

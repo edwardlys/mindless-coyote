@@ -32,11 +32,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class, 'fetch']);
     Route::post('/differ', [DifferController::class, 'generateDiff']);
-});
 
+    Route::post('/entries', [EntriesController::class, 'create']);
+    Route::put('/entries/{slug}', [EntriesController::class, 'update']);
+    Route::delete('/entries/{slug}', [EntriesController::class, 'delete']);
+});
 
 Route::get('/entries', [EntriesController::class, 'index']);
 Route::get('/entries/{slug}', [EntriesController::class, 'view']);
-Route::post('/entries', [EntriesController::class, 'create']);
-Route::put('/entries/{slug}', [EntriesController::class, 'update']);
-Route::delete('/entries/{slug}', [EntriesController::class, 'delete']);

@@ -10,6 +10,7 @@ class Entry extends Model
         'title',
         'content',
         'slug',
+        'published',
     ];
 
     protected $casts = [

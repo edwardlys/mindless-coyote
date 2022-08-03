@@ -17,7 +17,7 @@ const authStore = useAuthStore();
         custom
         v-slot="{ navigate }"
       >
-        <button @click="navigate">Entries</button>
+        <button @click="navigate">Manage Entries</button>
       </RouterLink>
     </nav>
   </div>

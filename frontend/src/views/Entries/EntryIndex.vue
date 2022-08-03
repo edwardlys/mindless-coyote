@@ -22,14 +22,21 @@ const router = useRouter();
 const goToCreateEntryPage = () => {
   router.push({ name: "EntriesCreate" });
 };
+
+const goToUpdateEntryPage = (slug) => {
+  router.push({ name: "EntriesUpdate", params: { slug } });
+};
 </script>
 
 <template>
   <div>
-    <button @click="goToCreateEntryPage">Create</button>
+    <div class="create-button">
+      <button @click="goToCreateEntryPage">Create a new entry</button>
+    </div>
 
     <div v-for="(entry, index) in entries" :key="index">
       <EntryCard
+        @click="goToUpdateEntryPage(entry.slug)"
         :title="entry.title"
         :content="entry.content"
         :date="entry.created_at"
@@ -39,3 +46,9 @@ const goToCreateEntryPage = () => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.create-button {
+  text-align: center;
+}
+</style>
