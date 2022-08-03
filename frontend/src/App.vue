@@ -7,8 +7,8 @@ import LoginStatus from "./components/LoginStatus.vue";
 const router = useRouter();
 
 const goToHome = () => {
-  router.push({name: 'Home'});
-}
+  router.push({ name: "Home" });
+};
 </script>
 
 <template>

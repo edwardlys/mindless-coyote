@@ -11,8 +11,8 @@ const router = useRouter();
 const emailFieldInput = ref(null);
 
 const submit = () => {
-  authStore.login(email.value, password.value).then((r) => {
-    router.push({ name: 'Home' });
+  authStore.login(email.value, password.value).then(() => {
+    router.push({ name: "Home" });
   });
 };
 
@@ -25,7 +25,12 @@ onMounted(() => {
   <div class="center">
     <form @submit.prevent="submit">
       <div>
-        <input type="email" placeholder="Email" v-model="email" ref="emailFieldInput"/>
+        <input
+          type="email"
+          placeholder="Email"
+          v-model="email"
+          ref="emailFieldInput"
+        />
       </div>
 
       <div>

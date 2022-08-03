@@ -5,9 +5,9 @@ import TinyMce from "@tinymce/tinymce-vue";
 import axios from "axios";
 
 const BACKEND_API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
-const UPDATE_MODE = 'UPDATE_MODE';
-const CREATE_MODE = 'CREATE_MODE';
-const $backend = inject('$backend');
+const UPDATE_MODE = "UPDATE_MODE";
+const CREATE_MODE = "CREATE_MODE";
+const $backend = inject("$backend");
 
 const toast = useToast();
 
@@ -17,11 +17,10 @@ const props = defineProps({
 
 const mode = computed(() => {
   return props.slug ? UPDATE_MODE : CREATE_MODE;
-})
+});
 
 let content = ref("");
 let title = ref("");
-
 
 const enabledEditorPlugins = ref([
   "lists",
@@ -55,7 +54,7 @@ const submit = () => {
         })
         .then((response) => {
           if (response.data.code == "ENTRY_UPDATED") {
-            toast.success("Successfully updated entry.")
+            toast.success("Successfully updated entry.");
           } else {
             toast.error("Unable to save the entry, please try again later.");
           }
@@ -70,7 +69,7 @@ const submit = () => {
         })
         .then((response) => {
           if (response.data.code == "ENTRY_SAVED") {
-            toast.success("Successfully save entry.")
+            toast.success("Successfully save entry.");
           } else {
             toast.error("Unable to save the entry, please try again later.");
           }
@@ -92,7 +91,7 @@ onMounted(() => {
         }
       });
   }
-})
+});
 </script>
 
 <template>

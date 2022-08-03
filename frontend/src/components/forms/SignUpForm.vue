@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 
 let username = ref("");
 let email = ref("");

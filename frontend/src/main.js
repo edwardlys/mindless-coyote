@@ -59,5 +59,3 @@ authStore.checkAuth().then(() => {
   app.mount("#app");
 });
 ////////////////////
-
-

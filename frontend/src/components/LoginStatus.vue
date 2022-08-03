@@ -7,13 +7,17 @@ const logout = () => {
   if (confirm("Press OK to logout")) {
     authStore.logout();
   }
-}
+};
 </script>
 
 <template>
   <div class="login-status">
     <div v-if="authStore.isLoggedIn">
-      <font-awesome-icon icon="fa-solid fa-plug" @click="logout" :style="{ color: 'green' }"/>
+      <font-awesome-icon
+        icon="fa-solid fa-plug"
+        @click="logout"
+        :style="{ color: 'green' }"
+      />
     </div>
     <div v-else>
       <RouterLink :to="{ name: 'Login' }" custom v-slot="{ navigate }">
@@ -26,7 +30,6 @@ const logout = () => {
           />
         </font-awesome-layers>
       </RouterLink>
-      
     </div>
   </div>
 </template>

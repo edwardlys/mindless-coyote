@@ -13,7 +13,7 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: () => import("../views/LoginView.vue"),
-      beforeEnter: (to, from) => {
+      beforeEnter: () => {
         const authStore = useAuthStore();
         return !authStore.isLoggedIn;
       },
